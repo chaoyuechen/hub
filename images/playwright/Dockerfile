@@ -27,8 +27,5 @@ RUN apt-get update && apt-get install -y wget npm vim cron inetutils-ping openss
     ca-certificates && \
     apt-get autoremove -y && apt-get clean
 
-# Create and activate virtual environment, then install Python packages
-RUN python3 -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
 
-RUN pip install numpy pytest pytest-playwright uvicorn psutil fastapi service requests schedule
+RUN pip3 install --break-system-packages numpy pytest pytest-playwright uvicorn psutil fastapi service requests schedule
