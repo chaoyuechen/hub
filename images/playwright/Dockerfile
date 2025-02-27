@@ -28,10 +28,4 @@ RUN apt-get update && apt-get update && apt-get install -y wget npm vim cron ine
     apt-get autoremove -y && apt-get clean
 
     # Python pip3 install
-RUN pip3 install numpy pytest pytest-playwright uvicorn psutil fastapi service requests schedule && \
-# Config ssh and user
-    sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config && \
-    useradd web && \
-    echo "web:admin" | chpasswd && \
-    echo "web ALL=(ALL) ALL" >> /etc/sudoers && \
-    echo "ListenAddress 0.0.0.0:5022" >> /etc/ssh/sshd_config
+RUN pip3 install numpy pytest pytest-playwright uvicorn psutil fastapi service requests schedule
